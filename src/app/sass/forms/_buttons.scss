@@ -1,0 +1,34 @@
+.prfl {
+    &__btn {
+        padding: 8px 15px;
+        margin-top: 15px;
+        border: none;
+        border-radius: $modal-button-radius;
+        cursor: pointer;
+        &.btn {
+            &--primary {
+                background-color: $orange;
+                color: $white;
+            }
+            &--secondary {
+                background-color: $darkBlue;
+                color: $orange;
+            }
+        }
+        &.is--send {
+            width: fit-content;
+            &:hover {
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    width: 13px;
+                    height: 13px;
+                    margin-left: 5px;
+                    background: url($icon-path + "/send.svg") no-repeat center/cover;
+                    transform: scale(1.2);
+                    transition: transform 0.5s ease-in-out;
+                }
+            }
+        }
+    }
+}

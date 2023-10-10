@@ -1,0 +1,50 @@
+.footer {
+    position: sticky;
+    bottom: 0;
+    padding: 10px 25px;
+    border-radius: 8px;
+    background-color: $orange;
+    z-index: 3;
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        @media (max-width: $sc-sm) {
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+    .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        @media (max-width: $sc-sm) {
+            align-items: center;
+            justify-content: center;
+        }
+        .socialMedia {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+    }
+    .footer-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        @media (max-width: $sc-sm) {
+            flex-direction: column;
+        }
+        @media (min-width: $sc-sm) {
+            button {
+                flex: 0 0 115px;
+            }
+        }
+    }
+    .copyrights {
+        text-align: center;
+    }
+}

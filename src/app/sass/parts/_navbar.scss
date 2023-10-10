@@ -1,0 +1,101 @@
+@use "sass:math";
+.prfl {
+    &__nav-cntr {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        background-color: $darkBlue;
+    }
+    &__nav {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        @media (max-width: $sc-md) {
+            display: none;
+            &.show {
+                transform: translateX(0%);
+                position: absolute;
+                top: 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 5px;
+                width: 100%;
+                background-color: $darkBlue;
+                animation: fadeInAnimation ease 0.5s;
+                animation-iteration-count: 1;
+                animation-fill-mode: flat;
+                z-index: 1;
+            }
+        }
+        &-burger {
+            display: none;
+            cursor: pointer;
+            @media (max-width: $sc-md) {
+                display: block;
+                padding: 15px;
+                font-size: 24px;
+                color: $white;
+            }
+        }
+        &-item {
+            transition: 0.3s all ease;
+            cursor: pointer;
+            & * {
+                align-items: center;
+            }
+            &:hover {
+                font-weight: 700;
+                svg {
+                    margin-left: 2px;
+                }
+            }
+            svg {
+                display: none;
+            }
+            @media (max-width: $sc-md) {
+                display: grid;
+                grid-template-columns: 92px 1fr;
+                width: 100%;
+                padding: 12px;
+                svg {
+                    display: block;
+                }
+            }
+            @each $nav-el in $nav-els {
+                @if $nav-el % 2 == 0 {
+                    &:nth-child(#{$nav-el}) {
+                        color: $orange;
+                        &:hover {
+                            color: $white;
+                            @media (max-width: $sc-sm) {
+                                & {
+                                    background-color: $orange;
+                                }
+                            }
+                        }
+                    }
+                } @else {
+                    &:nth-child(#{$nav-el}) {
+                        color: $white;
+                        &:hover {
+                            color: $orange;
+                            @media (max-width: $sc-sm) {
+                                & {
+                                    background-color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: $sc-md) {
+        &__main.show {
+            transform: translateY(190px);
+        }
+    }
+}
